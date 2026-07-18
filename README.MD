@@ -21,8 +21,7 @@ This repository documents my progress as I learn React from the fundamentals to 
   * `useEffect`
   * `useContext`
   * `useReducer`
-  * `useRef`
-  * `useMemo`
+ * `useMemo`
   * `useCallback`
 * React Router
 * API Integration
