@@ -1,14 +1,10 @@
-export const App=function(){
-  return(
-  <>
-  <title>Mynithesh</title>
-    <table border="1">
-      <tr>
-      <th>name</th>
-      <th>Email</th>
-      <th>Phoneno:</th>
-      </tr>
-    </table>
 
-  </>);
+import React from "react";
+import Netflix from "./components/Netflixseries";
+export function App(){
+  return(
+    <React.Fragment>
+  <Netflix/>
+    </React.Fragment>
+);
 };
