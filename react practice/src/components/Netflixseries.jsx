@@ -3,9 +3,9 @@ import {SeriesCard} from './Lists.jsx';
 const Netflix=()=>{
   return(
 
-    <div>
+    <div className="grid grid-three--cols">
       {Seriesdata.map((currElem)=>{
-        return(<SeriesCard key={currElem.id}currElem={currElem}/>);
+        return(<SeriesCard key={currElem.id}data={currElem}/>);
       }
       )
     }
