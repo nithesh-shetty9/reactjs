@@ -27,13 +27,6 @@ img{
 color:#333;
 
 }
-.card-rating{
-}
-.card-description{
-    
-}
-.card-caste{
-}
 .card-button{
     width:90px;
     padding:10px;
@@ -42,7 +35,19 @@ color:#333;
     transition:background-color 0.3s ease,transform 0.3s;
 }
 .card-button:hover{
-    background-color: brown;
+    background-color: blueviolet;
     transform:scale(1.1);
 }
-
+.rating{
+    background-color: rgb(139, 236, 139);
+}
+.average{
+    background-color: rgb(211, 211, 83);
+}
+.default-rating{
+    border-radius:8px;
+    padding:4px;
+}
+.default{
+    background-color: aqua;
+}
