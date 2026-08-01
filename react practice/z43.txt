@@ -1,0 +1,3 @@
+shortcircuit evalution
+.......................
+Short-circuit evaluation means JavaScript stops checking the rest of an expression as soon as it already knows the final answer
