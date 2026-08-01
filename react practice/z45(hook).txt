@@ -1,0 +1,144 @@
+useState is the most commonly used React Hook. It lets a component store data that can change over time. When that data changes, React re-renders the component and updates the UI.
+Things to remember
+✅ Import useState.
+
+✅ Create state using:
+
+const [value, setValue] = useState(initialValue);
+✅ Use the state variable to display data.
+✅ Use the setter function to update the state.
+✅ Updating state causes React to re-render the component.
+❌ Never update the state directly.
+
+Wrong:
+
+count = count + 1; // ❌
+
+Correct:
+
+setCount(count + 1); // ✅
+
+----------------------------------------------------------------
+Challenge 1: Counter
+
+Create a component that:
+
+Starts at 0
+Displays the number
+Has a button Increment
+Every click increases the count by 1
+
+Expected:
+
+0
+[Increment]
+
+Click →
+
+1
+------------------------------
+🟢 Challenge 2: Name Changer
+
+Initial state:
+
+Guest
+
+Button:
+
+Change Name
+
+After clicking:
+
+Nithesh
+
+Use useState.
+-------------------------------------
+🟡 Challenge 3: Like Button
+
+Initial:
+
+❤️ Likes: 0
+
+Every click:
+
+❤️ Likes: 1
+❤️ Likes: 2
+❤️ Likes: 3
+...----------------------------------------
+🟡 Challenge 4: Show/Hide Text
+
+Initially show:
+
+Hello React!
+
+Button:
+
+Hide
+
+After clicking:
+
+(nothing)
+
+Button becomes:
+Show
+
+Click again:
+
+Hello React!
+
+Hint: Think about what type of value (true/false) you should store in state.
+--------------------------------------------------------
+🟠 Challenge 5: Input Box
+
+Create:
+
+[___________]
+
+You typed:
+
+As the user types:
+
+Input:
+Nithesh
+
+Output:
+You typed:
+Nithesh
+-------------------------------
+🔴 Challenge 6 (Real Understanding)
+
+Without running the code, predict the output.
+
+const [count, setCount] = useState(5);
+
+return (
+  <>
+    <h1>{count}</h1>
+
+    <button onClick={() => setCount(20)}>
+      Click
+    </button>
+  </>
+);
+Questions
+What is shown initially?
+What happens after clicking the button once?
+Does the component re-render?
+🔥 Final Challenge (Best One)
+
+Build this without watching any tutorial:
+
+Counter
+
+Count: 0
+
+[ + ]
+[ - ]
+[ Reset ]
+
+Rules:
+
++ increases count.
+- decreases count.
+Reset makes it 0.
+Use only one useState.
