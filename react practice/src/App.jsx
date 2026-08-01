@@ -1,7 +1,8 @@
 
 // import { EventHandling } from "./components/Eventhandling";
 
-import { Eventpropagation } from "./components/eventpropogation";
+// import { Eventpropagation } from "./components/eventpropogation";
+import { Shortit } from "./components/Shortcircuit";
 
 // import { Eventprops } from "./components/Eventprops";
 
@@ -10,9 +11,7 @@ export function App(){
   return(
     <section className="container">
       <h1 className="common-heading">List of Best Netflix series</h1>
-      {/* <Eventprops/> */}
-      <Eventpropagation/>
-    {/* <EventHandling/> */}
+      <Shortit/>
     </section>
 );
 };

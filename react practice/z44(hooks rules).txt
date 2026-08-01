@@ -1,0 +1,78 @@
+Rule 1: Call Hooks only at the top level
+✅ Call Hooks at the top of your component.
+❌ Don't call them inside:
+if
+for
+while
+switch
+Nested functions
+Event handlers
+
+Reason: React depends on the same Hook order on every render.
+--------------------------------------------------------
+Rule 2: Call Hooks only from React functions
+
+Hooks can only be used inside:
+
+✅ Functional Components
+✅ Custom Hooks
+
+Not inside normal JavaScript functions.
+-------------------------------------------
+Rule 3: Custom Hooks must start with use
+
+✅ Correct:
+
+useFetch()
+useCounter()
+useAuth()
+
+❌ Wrong:
+
+fetchData()
+counter()
+----------------------------------------------
+Rule 4: Never change the Hook order
+
+Every render should call Hooks in the same order.
+
+React internally remembers them like:
+
+Hook 1 → useState
+Hook 2 → useEffect
+Hook 3 → useRef
+
+If the order changes, React assigns the wrong state to the wrong Hook.
+
+🎯 Memory Trick
+
+Think of Hooks like students sitting in a classroom.
+
+Seat 1 → useState
+Seat 2 → useEffect
+Seat 3 → useRef
+
+Every day (every render), the students must sit in the same seats.
+
+If one student skips class because of an if statement, everyone behind shifts forward:
+
+Yesterday:
+Seat 1 → useState
+Seat 2 → useEffect
+Seat 3 → useRef
+
+Today:
+Seat 1 → useEffect ❌
+Seat 2 → useRef ❌
+
+Now the teacher (React) thinks the wrong student is in each seat, causing bugs.
+
+That's why Hooks must always be called in the same order.
+
+✅ Final 4 Rules
+Top level only.
+Only inside React components or custom Hooks.
+Custom Hook names start with use.
+Never change the order of Hook calls.
+
+One-line summary: React identifies Hooks by their call order, so always call them in the same order, at the top level, inside React components or custom Hooks only.

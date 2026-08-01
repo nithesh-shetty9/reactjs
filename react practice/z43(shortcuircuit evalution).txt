@@ -1,0 +1,39 @@
+shortcircuit evalution
+.......................
+Short-circuit evaluation means JavaScript stops checking the rest of an expression as soon as it already knows the final answer
+-------------------------------------------------------------------------------------------
+1)&&
+case:1
+export const Shortit=()=>{
+    const loggedin=false;
+    return(
+        <>
+        <h1>hi hello</h1>
+        <h1>{loggedin&&"welcome"}</h1>
+        </>
+    )
+}
+output:of h1 is nothing beacuse loffin in is false it return immeditely
+case:2
+export const Shortit=()=>{
+    const loggedin=true;
+    return(
+        <>
+        <h1>hi hello</h1>
+        <h1>{loggedin&&"welcome"}</h1>
+        </>
+    )
+}
+output:welcome
+conclusion:if the first tatemnt is false then it returns immeditely
+why???
+if (isLoggedIn) {
+    return <h1>Welcome</h1>;
+    -------------------------------------------------------------------------------------
+2)||
+
+If the left side is truthy, JavaScript stops and returns it.
+Otherwise, it evaluates the right side.
+-->if it finds true returns immeditely if false it checks next same as or nothing extra 
+....similar like upper checks both if both are false then it returns commonsense
+3))
