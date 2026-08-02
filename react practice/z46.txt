@@ -1,0 +1,5 @@
+challnege about Counter
+increamnt
+decremnet
+reset 
+setp count option upaaing dynmiaclly
