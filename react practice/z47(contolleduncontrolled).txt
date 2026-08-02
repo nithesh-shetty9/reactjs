@@ -1,0 +1,86 @@
+1. Controlled Input
+
+A controlled input is an input whose value is controlled by React state.
+
+React state is the single source of truth.
+You use useState to store the value.
+The input's value prop is connected to state.
+Changes are handled with onChange.
+Example
+import { useState } from "react";
+
+function ControlledInput() {
+  const [name, setName] = useState("");
+
+  return (
+    <input
+      type="text"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+    />
+  );
+}
+Flow
+User types
+    ↓
+onChange event
+    ↓
+setState()
+    ↓
+React re-renders
+    ↓
+Input value updates
+Advantages
+
+✅ Easy validation
+✅ Easy formatting/masking
+✅ Real-time UI updates
+✅ Better for complex forms
+
+Disadvantages
+
+❌ More code
+❌ Re-renders on every keystroke
+
+2. Uncontrolled Input
+
+An uncontrolled input manages its own state in the DOM.
+
+React does not track the value.
+You access the value using a ref.
+Similar to traditional HTML forms.
+Example
+import { useRef } from "react";
+
+function UncontrolledInput() {
+  const inputRef = useRef();
+
+  const handleSubmit = () => {
+    alert(inputRef.current.value);
+  };
+
+  return (
+    <>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </>
+  );
+}
+Flow
+User types
+    ↓
+Browser stores value in DOM
+    ↓
+React doesn't track it
+    ↓
+Read value using ref when needed
+Advantages
+
+✅ Less code
+✅ Fewer re-renders
+✅ Good for simple forms
+
+Disadvantages
+
+❌ Harder validation
+❌ Harder to synchronize UI with input values
