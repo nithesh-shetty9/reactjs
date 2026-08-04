@@ -1,0 +1,206 @@
+
+# React Rendering + `useEffect` Summary
+
+## 1. A React component is just a function
+
+```jsx
+function App() {
+  // code
+
+  return <h1>Hello</h1>;
+}
+```
+
+Every time React **renders**, this function runs from top to bottom.
+
+---
+
+## 2. What causes a re-render?
+
+Only things like:
+
+* ✅ `setState()` (`setUsers`, `setCount`, etc.)
+* ✅ Parent component re-renders
+* ✅ Props change
+
+Example:
+
+```jsx
+setUsers(data);
+```
+
+This changes the state, so React renders the component again.
+
+---
+
+## 3. What does `useEffect` do?
+
+`useEffect` runs **after React finishes rendering**.
+
+It is used for side effects like:
+
+* API calls
+* Timers
+* Event listeners
+* `localStorage`
+* WebSockets
+
+---
+
+## 4. What does the dependency array mean?
+
+### No dependency array
+
+```jsx
+useEffect(() => {
+  console.log("Runs every render");
+});
+```
+
+Runs after **every render**.
+
+---
+
+### Empty dependency array
+
+```jsx
+useEffect(() => {
+  console.log("Runs once");
+}, []);
+```
+
+Runs **only once after the first render (mount)**.
+
+---
+
+### With dependencies
+
+```jsx
+useEffect(() => {
+  console.log("Count changed");
+}, [count]);
+```
+
+Runs after the first render and whenever `count` changes.
+
+---
+
+# 5. Why do we use `useEffect` for fetching?
+
+Correct:
+
+```jsx
+useEffect(() => {
+  fetchData();
+}, []);
+```
+
+Wrong:
+
+```jsx
+fetchData();
+```
+
+If you call `fetchData()` directly inside the component body:
+
+```text
+Render
+   ↓
+fetch()
+   ↓
+setUsers()
+   ↓
+Render
+   ↓
+fetch()
+   ↓
+setUsers()
+   ↓
+Infinite loop
+```
+
+---
+
+# 6. Why is there a second render even though `[]` is empty?
+
+This is the biggest confusion.
+
+```jsx
+useEffect(() => {
+  fetch(...)
+    .then(data => setUsers(data));
+}, []);
+```
+
+Timeline:
+
+```text
+Component starts
+        │
+        ▼
+1st Render
+(users = [])
+        │
+        ▼
+useEffect runs once
+        │
+        ▼
+fetch data
+        │
+        ▼
+setUsers(data)
+        │
+        ▼
+State changes
+        │
+        ▼
+2nd Render
+(users = fetched data)
+        │
+        ▼
+useEffect DOES NOT run again
+```
+
+**Important:**
+
+* `[]` **does not stop rendering.**
+* `[]` only stops **the effect** from running again.
+* The **second render happens because `setUsers(data)` changed the state.**
+
+---
+
+# 7. Difference between Rendering and `useEffect`
+
+| Rendering                           | `useEffect`                    |
+| ----------------------------------- | ------------------------------ |
+| Draws the UI                        | Performs side effects          |
+| Happens whenever state/props change | Runs after rendering           |
+| Component function executes         | Effect callback executes       |
+| Controlled by state and props       | Controlled by dependency array |
+
+---
+
+# Final Rule to Remember
+
+```text
+Component renders
+        ↓
+React paints the UI
+        ↓
+useEffect runs (if dependencies allow)
+        ↓
+If useEffect calls setState()
+        ↓
+State changes
+        ↓
+React renders again
+```
+
+## One-line memory trick
+
+* **`useState`** → Stores data.
+* **`setState`** → Causes a re-render.
+* **`useEffect`** → Runs side-effect code *after* rendering.
+* **Dependency array (`[]`)** → Decides **when the effect runs**, **not** when the component renders.
+
+If you remember just those four points, you'll understand most beginner React code involving `useState` and `useEffect`.
