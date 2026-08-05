@@ -1,16 +1,91 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+51/140
+# ⚛️ React Journey
 
-Currently, two official plugins are available:
+Welcome to my **React Journey**! 🚀
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This repository documents my progress as I learn React from the fundamentals to advanced concepts. It contains practice programs, mini projects, notes, and experiments that help me improve my frontend development skills and build modern web applications.
 
-## React Compiler
+## 📚 What I'm Learning
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React Fundamentals
+* JSX
+* Components
+* Props
+* State
+* Event Handling
+* Conditional Rendering
+* Lists and Keys
+* Forms
+* React Hooks
 
-## Expanding the ESLint configuration
+  * `useState`
+  * `useEffect`
+  * `useContext`
+  * `useReducer`
+ * `useMemo`
+  * `useCallback`
+* React Router
+* API Integration
+* Context API
+* Redux Toolkit
+* Best Practices
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Goal
+
+My goal is to master React by building projects, writing clean and reusable code, and gaining hands-on experience with modern frontend development.
+
+## 🛠️ Tech Stack
+
+* React
+* JavaScript (ES6+)
+* HTML5
+* CSS3
+* Vite
+* npm
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/nithesh-shetty9/react-journey.git
+```
+
+Navigate to the project:
+
+```bash
+cd react-journey
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## 📈 Learning Progress
+
+* ✅ React Basics
+* ⏳ Components & JSX
+* ⏳ Props & State
+* ⏳ React Hooks
+* ⏳ Routing
+* ⏳ API Integration
+* ⏳ Context API
+* ⏳ Redux Toolkit
+* ⏳ Building Real-World Projects
+
+## 💡 About This Repository
+
+This repository serves as my personal React learning journal where I practice concepts, build projects, and track my progress throughout my frontend development journey.
+
+---
+
+⭐ If you like this repository, consider giving it a star!
