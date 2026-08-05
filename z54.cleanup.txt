@@ -1,0 +1,86 @@
+React Component Lifecycle
+1. First Mount (Component appears for the first time)
+
+React does:
+
+Component Function Runs
+        ↓
+useState initializes state
+        ↓
+JSX is returned
+        ↓
+DOM is updated
+        ↓
+useEffect runs
+
+If Strict Mode is enabled (development only):
+
+Mount
+↓
+Component Function
+↓
+useEffect
+↓
+Cleanup
+↓
+Mount Again
+↓
+Component Function
+↓
+useEffect
+
+This extra cycle is only to test whether your cleanup works correctly.
+
+2. Re-render (State or Props change)
+
+For example:
+
+setCount(c => c + 1);
+
+React does:
+
+Component Function Runs Again
+        ↓
+Creates new JSX
+        ↓
+Compares with old JSX (Virtual DOM)
+        ↓
+Updates only changed parts
+useState does not reset.
+useEffect([]) does not run again.
+If useEffect has dependencies like [count], React runs:
+Cleanup of the old effect.
+The new effect.
+3. Unmount (Component disappears)
+
+For example:
+
+{show && <Cleanup />}
+
+When show becomes false:
+
+Cleanup Function Runs
+        ↓
+Component Destroyed
+
+This is where timers, event listeners, subscriptions, etc., should be removed.
+
+One-Line Summary
+Mount
+↓
+Component Function
+↓
+useEffect
+
+Re-render
+↓
+Component Function Only
+
+Unmount
+↓
+Cleanup Function
+The golden rule
+Component function → Runs on every render (mount + re-renders).
+useEffect([]) → Runs once after the first mount.
+Cleanup → Runs before the effect runs again (if dependencies change) and when the component unmounts.
+Strict Mode (development only) adds one extra mount → cleanup → mount cycle to help catch bugs.
