@@ -1,4 +1,4 @@
-import { createContext} from "react";
+import { createContext, useContext} from "react";
 //step 1
 export const Biocontext=createContext();
 //step2

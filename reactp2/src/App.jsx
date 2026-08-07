@@ -1,11 +1,10 @@
-import { Bioprovider} from "./Contextapi/Cont";
-import { Home } from "./Contextapi/Home";
+// import { Bioprovider} from "./Contextapi/Cont";
+// import { Home } from "./Contextapi/Home";
+import Counter from "./Customhook/Usecouter2";
 
 const App=() => {
   return (
-    <Bioprovider>
-    <Home/>
-    </Bioprovider>
+    <Counter/>
   );
 };
 
