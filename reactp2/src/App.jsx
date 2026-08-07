@@ -1,9 +1,12 @@
+import { Useref } from "./useeffect/Useref";
+import { Useid } from "./useeffect/Z63(useid)";
+
 const App=() => {
   return (
     <div>
-      <h1>Welcome to React</h1>
+      <Useid/>
     </div>
   );
 };
 
-export default App;
+export default App; 
