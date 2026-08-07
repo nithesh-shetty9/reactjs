@@ -1,11 +1,11 @@
-import { Useref } from "./useeffect/Useref";
-import { Useid } from "./useeffect/Z63(useid)";
+import { Bioprovider} from "./Contextapi/Cont";
+import { Home } from "./Contextapi/Home";
 
 const App=() => {
   return (
-    <div>
-      <Useid/>
-    </div>
+    <Bioprovider>
+    <Home/>
+    </Bioprovider>
   );
 };
 
