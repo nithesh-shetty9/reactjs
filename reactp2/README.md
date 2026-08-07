@@ -1,1 +1,1 @@
-64.5/140----until redux
+70/140----until redux
