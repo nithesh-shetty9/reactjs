@@ -4,3 +4,4 @@
 3)usereducer
 4)usereferece
 5)useid
+6)memos
