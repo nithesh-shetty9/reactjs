@@ -1,0 +1,11 @@
+React.memo
+→ memoizes COMPONENT
+→ "Should this child render?"
+
+useMemo
+→ memoizes VALUE/RESULT
+→ "Should I calculate this again?"
+
+useCallback
+→ memoizes FUNCTION REFERENCE
+→ "Should I create a new function reference?"
