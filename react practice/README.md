@@ -1,5 +1,5 @@
 
-51/140
+82/100
 # ⚛️ React Journey
 
 Welcome to my **React Journey**! 🚀
