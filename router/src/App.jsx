@@ -2,11 +2,13 @@ import {createBrowserRouter,RouterProvider }from "react-router";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import { Movie } from "./pages/Movie";
-import { Contact } from "./pages/Contact";
+import { Contact, contactdata } from "./pages/Contact";
 import { Applayout } from "./components/layout/Applayout";
 import "./App.css";
 import { ErrorPage } from "./pages/Errorpage";
 import { moviesdata } from "./API/getapi";
+import { Getmovies} from "./components/UI/MovieDetails";
+import {moviedetails } from "./components/UI/Getmovies";
 const App=()=>{
   const router=createBrowserRouter([
     {
@@ -26,9 +28,16 @@ const App=()=>{
       path:"/movie",
       element:<Movie/>,
       loader:moviesdata//function me he ggand
-    } , {
+    } , 
+    {
+      path:"/movie/:movieID",
+      element:<Getmovies/>,
+      loader:moviedetails
+    },
+    {
       path:"/contact",
-      element:<Contact/>
+      element:<Contact/>,
+      action:contactdata
     }
 
       ]

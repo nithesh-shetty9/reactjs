@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router"
+import { NavLink, useLoaderData } from "react-router"
 import "./card.css"
 export const Movie=()=>{
     const moviesdata=useLoaderData();
@@ -22,8 +22,10 @@ const Card=({movie})=>{
                     <img src={Poster} className="poster" alt={imdbID}/>
                 </div>
                 <div className="ticket-container">
-                    <div className="ticket_content">
+                    <div className="ticket__content">
+                        <NavLink to={"/movie/"+imdbID}>
                         <button className="ticket__buy-btn">Watch now</button>
+                        </NavLink>
                     </div>
                 </div>
             </div>
