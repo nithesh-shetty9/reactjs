@@ -1,6 +1,8 @@
-import { Movie } from "./Practice/Movie";
-
+import { Posts } from "./components/posts";
+import "./app.css"
 const App=()=>{
-  return <Movie/>
+  return <section className="main-section">
+  <Posts/>
+  </section>
 }
 export default App;
