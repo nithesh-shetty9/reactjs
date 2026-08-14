@@ -3,7 +3,8 @@ import { Getpost, Deletepost } from "../api/Postapi";
 import "../App.css"
 import { Form } from "./Form";
 export const Posts=() =>{
-    const [data,setData]=useState(null);
+    const [data,setData]=useState([]);
+    const [updatedapi,setupdateapi]=useState({});
 const getpostdata=async()=>
   {
   const response=await Getpost();
@@ -13,28 +14,7 @@ const getpostdata=async()=>
   useEffect(()=>{
     getpostdata();
   },[])
-  if(!data)
-  {
-    return<h1>Loading</h1>
-  }
-  return(
-    <>
-    <section className="section-form">
-    <Form data={data}setData={setData}/>
-    </section>
-    <section className="section-post">
-        <ol>
-            {
-                data.map((curr)=>{
-                    return<Card curr={curr}key={curr.id}setData={setData}data={data}/>
-                })
-            }
-        </ol>
-    </section>
-    </>
-  )
-};
- const handledeletepost=async(id,setData,data)=>{
+  const handledeletepost=async(id,setData,data)=>{
     try{
    const response=await Deletepost(id);
    if(response.status===200)
@@ -50,14 +30,35 @@ const getpostdata=async()=>
         console.log(error);
     }
  }
-const Card=({curr,setData,data})=>{
-    const{body,title,id}=curr;
-    return(<li>
-        <p>Title:{title}</p>
-        <p>Body:{body}</p>
-        <button >Edit</button>
-        <button className="btn-delete"onClick={
-            ()=>handledeletepost(id,setData,data)
-        }>Delete</button>
-    </li>);
-}
+ const handleupdatepost=(curr)=>{
+   setupdateapi(curr)
+
+ }
+  return(
+    <>
+    <section className="section-form">
+    <Form data={data}setData={setData} updatedapi={updatedapi} setUpdatedapi={setupdateapi}/>
+    </section>
+    <section className="section-post">
+        <ol>
+            {
+                data.map((curr)=>{
+                    const{body,title,id}=curr;
+                                return(
+                    <li key={id}>
+                    <p>Title:{title}</p>
+                    <p>Body:{body}</p>
+                    <button  onClick={()=>{
+                        handleupdatepost(curr);
+                    }} >Edit</button>
+                    <button className="btn-delete"onClick={
+                        ()=>handledeletepost(id,setData,data)
+                    }>Delete</button>
+                         </li>   
+                );
+            })
+                }</ol>
+    </section>
+    </>
+  )
+};
