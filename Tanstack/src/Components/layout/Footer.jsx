@@ -1,5 +1,7 @@
 export const Footer=()=>{
   return(
-    <h1>Footer</h1>
+    <footer>
+        <p>copyright malpuve</p>
+    </footer>
   );
 }
