@@ -1,15 +1,19 @@
-import {  useEffect} from "react";
+
 import { useQuery } from "@tanstack/react-query";
 import { Fetchposts } from "../../API/Apimethods";
 
 export const FetchRQ= () => {
-  const{data,isLoading,isError}=useQuery({
+  const{data,isLoading,isError,error}=useQuery({
     queryKey:["posts"],//usestate work
     queryFn:Fetchposts//useeffect workflow
   })
-  if(!data)
+  if(isLoading)
   {
     return <h1>loading</h1>;
+  }
+  if(isError)
+  {
+    return <h1>{error.message}</h1>;
   }
   return (
     <div>

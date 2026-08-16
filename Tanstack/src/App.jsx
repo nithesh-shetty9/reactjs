@@ -1,3 +1,4 @@
+import {ReactQueryDevtools}from "@tanstack/react-query-devtools"
 import { createBrowserRouter, RouterProvider } from "react-router";
 import { Mainlayout } from "./Components/layout/Mainlayout";
 import { Home } from "./Components/pages/Home";
@@ -32,6 +33,7 @@ const App=()=>{
     <>
     <QueryClientProvider client={queryClient}>
   <RouterProvider router={router}></RouterProvider>
+  <ReactQueryDevtools initialIsOpen={false}/>
   </QueryClientProvider>
   </>
   )
