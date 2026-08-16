@@ -12,7 +12,7 @@ export const Fetchold = () => {
   const getPostsData = async () => {
     try {
       const res = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts?_start=0&_limit=3"
+        "https://jsonplaceholder.typicode.com/posts?_start=0&_limit=20"
       );
       if (res.status === 200) {
         setPosts(res.data); // Set the fetched posts data

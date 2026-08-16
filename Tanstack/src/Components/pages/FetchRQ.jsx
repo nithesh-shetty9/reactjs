@@ -5,7 +5,9 @@ import { Fetchposts } from "../../API/Apimethods";
 export const FetchRQ= () => {
   const{data,isLoading,isError,error}=useQuery({
     queryKey:["posts"],//usestate work
-    queryFn:Fetchposts//useeffect workflow
+    queryFn:Fetchposts,//useeffect workflow
+    //gcTime:1000
+    staleTime:5000,//5min
   })
   if(isLoading)
   {
