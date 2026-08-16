@@ -7,7 +7,9 @@ export const FetchRQ= () => {
     queryKey:["posts"],//usestate work
     queryFn:Fetchposts,//useeffect workflow
     //gcTime:1000
-    staleTime:5000,//5min
+    // staleTime:5000,
+    refetchInterval:1000,//5min
+    refreshIntervalInBackground:true
   })
   if(isLoading)
   {
