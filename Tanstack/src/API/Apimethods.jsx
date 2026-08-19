@@ -20,4 +20,24 @@ export const FetchInvpost=async(id)=>{
     {
         console.log(error);
     }
+}//delete for usemutaution
+export const DeletePost=async(id)=>{
+    const response=await api.delete("/posts/"+id);
+    return response;
+}
+export const Updatedata=(id)=>{
+    const response=api.patch("/posts/"+id,{title:"i have updated by clicked bewakuff"});
+    return response;
+}
+//infinite scrolling
+export const Fetchuser=async({pageParam=1})=>{
+    try{
+        const res=await axios.get("https://api.github.com/users?per_page=10&page="+pageParam);
+        return res.data;
+    }
+     
+    catch(error){
+        console.log(error);
+    }
+
 }

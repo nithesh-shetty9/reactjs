@@ -9,6 +9,7 @@ export const Header=()=>{
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/trad">Fetchold</NavLink></li>
                  <li><NavLink to="/rq">FetcRQ</NavLink></li>
+                 <li><NavLink to="/infinite" >Infinitescroll</NavLink></li>
             </ul>
         </div>
     </header>

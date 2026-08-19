@@ -1,6 +1,6 @@
 
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { Fetchposts } from "../../API/Apimethods";
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { DeletePost, Fetchposts, Updatedata } from "../../API/Apimethods";
 import { NavLink } from "react-router";
 import { useState } from "react";
 
@@ -15,6 +15,26 @@ export const FetchRQ= () => {
     // refetchInterval:1000,//5min
     // refreshIntervalInBackground:true
   })//query key is changed then only due to query
+const queryclient=useQueryClient();
+  ///usemutation
+ const deleteMutation= useMutation({
+    mutationFn:(id)=>DeletePost(id),
+  onSuccess:(data,id)=>{
+    queryclient.setQueryData(["posts",page],(curr)=>{
+      return curr?.filter((post)=>post.id!==id);
+    })
+  }
+  })
+   const UpdateMutation= useMutation({
+    mutationFn:(id)=>Updatedata(id),
+  onSuccess:(data,id)=>{//here data get sthe updated response
+    queryclient.setQueryData(["posts",page],(curr)=>{
+      return curr?.map((post)=>{
+        return post.id===id?{...post,title:"i have updated"}:post;
+      })
+      });
+    }})
+
   if(isLoading)
   {
     return <h1>loading</h1>;
@@ -35,6 +55,8 @@ export const FetchRQ= () => {
               <p>{title}</p>
               <p>{body}</p>
               </NavLink>
+              <button onClick={()=>deleteMutation.mutate(id)}>Delete</button>
+              <button onClick={()=>UpdateMutation.mutate(id)}>Update</button>
             </li>
           );
         })}
