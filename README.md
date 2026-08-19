@@ -1,5 +1,5 @@
 react js
 tanstack query
 reactrouter
-redux js
+redux toolkit
 Axios
